@@ -29,4 +29,13 @@ func main() {
 
 	fmt.Println("Ver la direccion de memoria de una variable", &variable_boleana2) // vemos la dirección de memoria utlizando ampersand & y la variable
 
+	const constante int = 12 // Definiendo una constante con un valor entero
+	fmt.Println("La constante vale: ", constante)
+
+	const constante2 = 12 // Otra forma de definir una constante
+	fmt.Println("La constante vale: ", constante2)
+
+	const constante_string string = "OAAAA"
+	println("El valor de la constante es: ", constante_string)
+
 }
