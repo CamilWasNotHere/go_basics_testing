@@ -2,6 +2,7 @@ package main // definimos la función princiapal
 
 import ( // importamos los pquetes que vamos a usar
 	"fmt" // fmt es un paquete para formatear y mostrar texto en consola
+	"unsafe"
 )
 
 func main() {
@@ -36,6 +37,36 @@ func main() {
 	fmt.Println("La constante vale: ", constante2)
 
 	const constante_string string = "OAAAA"
-	println("El valor de la constante es: ", constante_string)
+	println("El valor de la constante es: ", constante_string) // constante de tipo string
+
+	//Acontinuación tipos de datos enteros en diferentes bits
+	var my_byte8 int8
+	fmt.Printf("Type: %T byte: %d bytes: %d\n", my_byte8, unsafe.Sizeof(my_byte8), unsafe.Sizeof(my_byte8)*8)
+
+	var my_byte16 int16
+	fmt.Printf("Type: %T byte: %d bytes: %d\n", my_byte16, unsafe.Sizeof(my_byte16), unsafe.Sizeof(my_byte16)*8)
+
+	var my_byte32 int32
+	fmt.Printf("Type: %T byte: %d bytes: %d\n", my_byte32, unsafe.Sizeof(my_byte32), unsafe.Sizeof(my_byte32)*8)
+
+	var my_byte64 int64
+	fmt.Printf("Type: %T byte: %d bytes: %d\n", my_byte64, unsafe.Sizeof(my_byte64), unsafe.Sizeof(my_byte64)*8)
+
+	var my_uint64 uint64 // Ejemplo del uso de uint con 64 bits aplicable para los otros bits
+	fmt.Printf("Tpye: %T byte: %d bytes: %d\n", my_uint64, unsafe.Sizeof(my_uint64), unsafe.Sizeof(my_uint64)*8)
+
+	var my_float32 float32 // Ejemplo dato de tipo flotante de 32 bits
+	fmt.Printf("Tpye: %T byte: %d bytes: %d\n", my_float32, unsafe.Sizeof(my_float32), unsafe.Sizeof(my_float32)*8)
+
+	var my_float64 float64 // Ejemplo dato de tipo flotante 64 bits
+	fmt.Printf("Type %T byte: %d bytes: %d\n", my_float64, unsafe.Sizeof(my_float64), unsafe.Sizeof(my_float64)*8)
+
+	var my_float float64 // Ejemplo del valor predefinido de un tipo flotante si no se le agrega ningun valor
+	fmt.Printf("Valor predefinido del tipo flotante %f\n", my_float)
+
+	my_string := `Esta es una forma de escribir texto
+con saltos de linea sin 
+ningun problema en el codigo` //utilizamos `` para escribir texto con saltos de linea :)
+	fmt.Printf("%s", my_string)
 
 }
