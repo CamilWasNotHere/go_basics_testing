@@ -1,8 +1,10 @@
 package main // definimos la función princiapal
 
 import ( // importamos los pquetes que vamos a usar
-	"fmt" // fmt es un paquete para formatear y mostrar texto en consola
-	"unsafe"
+
+	"fmt"     // fmt es un paquete para formatear y mostrar texto en consola
+	"strconv" // convertir string a un tipo de dato
+	"unsafe"  // unsafe es un paquete que se utiliza para saber el tamaño de memoria que una variable ocupa en byte
 )
 
 func main() {
@@ -69,4 +71,43 @@ con saltos de linea sin
 ningun problema en el codigo` //utilizamos `` para escribir texto con saltos de linea :)
 	fmt.Printf("%s", my_string)
 
+	{ //definimos un Scope de tipo local
+		fmt.Println() // Salto de linea
+		my_float := 32.3123
+		fmt.Printf("Type: %T valor: %f\n", my_float, my_float) // Vemos el tipo de dato del cual estamos tratando
+
+		my_float_string := fmt.Sprintf("%f", my_float) // formatemos el tipo de dato florante y lo convertimos a un string
+		fmt.Printf("Type: %T valor: %s\n", my_float_string, my_float_string)
+
+		my_int := 12
+		fmt.Printf("Type %T, valor: %d\n", my_int, my_int) // vemos el tipo de dato del cual estamos tratando
+
+		my_int_string := fmt.Sprintf("%d", my_int) // formatiamos el tipo de dato entero y lo convertimos a un string
+		fmt.Printf("Type: %T, valor: %s\n", my_int_string, my_int_string)
+
+		my_string_to_int, err := strconv.ParseInt("42", 0, 64) // Forma de poder convertir un string a un entero
+		fmt.Printf("Type: %T, valor: %d\n", my_string_to_int, my_string_to_int)
+		fmt.Println(err)
+
+		my_string_to_float, _ := strconv.ParseFloat("12.23", 64)                      // Forma de convertir un string a un flotante, utilizamos _ para variables que no vamos a utilizar
+		fmt.Printf("Type: %T, valor: %.2f\n", my_string_to_float, my_string_to_float) //para redondear utilizar un . y la cantidad de decimales seguido de f
+
+	}
+
+	{
+
+		var A byte = 65
+		fmt.Println("Valor ASCII de A: ", A) //convirtiendo el valor en byte a un string en este caso a 'A'
+
+		fmt.Println(string(rune(('👻')))) // El tipo de codificacion rune o unicode acepta ermogis
+
+		var vector = []byte{65, 96, 88, 115} // Definimos un vector de tipo byte con valores que convertiremos en caracteres
+		fmt.Println(vector)                  // Imprimos el vector con sus valores
+		fmt.Println(string(vector))          // Convertimos y imprimos el vector a caracteres
+
+	}
+
+	{
+
+	}
 }
